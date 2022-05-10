@@ -139,7 +139,7 @@ class HitCarder(object):
         new_info['sfzx'] = old_info['sfzx'] # 在校
         new_info['sfymqjczrj'] = old_info['sfymqjczrj'] # 入境
         new_info['sfqrxxss'] = 1 # 属实
-        new_info['campus'] = '紫金港校区' #校区
+        new_info['campus'] = '玉泉校区' #校区
         new_info['verifyCode'] =  ocr.classification(resp.content)#验证码
 
         self.info = new_info
@@ -239,5 +239,5 @@ if __name__ == "__main__":
 
     pushplus_token = os.environ.get('PUSHPLUS_TOKEN')
     if pushplus_token:
-        print('pushplus服务已下线，建议使用钉钉')
-        exit(-1)
+        ret = message.pushplus(msg, '打卡', pushplus_token)
+        print('send_pushplus_message', ret)
