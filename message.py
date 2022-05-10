@@ -47,6 +47,25 @@ def serverchan(text, desp, serverchan_key, tries=5):
         time.sleep(5)
     return False
 
+def pushplus(title, content, pushplus_token):
+    #title, content = title[:100], content[:100]
+    # title = '建议使用钉钉\n' + title
+    pushplus_url = 'http://www.pushplus.plus/api/send'
+    data = {
+        "token": pushplus_token,
+        "title": title,
+        "content": content
+    }
+    body=json.dumps(data).encode(encoding='utf-8')
+    headers = {'Content-Type': 'application/json'}
+
+    r = requests.post(pushplus_url,data=body,headers=headers)
+    # r = requests.post(pushplus_url, data=json.dumps(data),
+                      # headers=headers).json()
+    response_data = r.json()
+    return response_data["code"]
+    #return response_data
+
 
 if __name__ == "__main__":
     msg = "打卡"*1000
@@ -59,3 +78,8 @@ if __name__ == "__main__":
     if serverchan_key:
         ret = serverchan(msg, '', serverchan_key)
         print('send_serverChan_message', ret)
+       
+    pushplus_token = os.environ.get('PUSHPLUS_TOKEN')
+    if pushplus_token:
+        ret = pushplus(msg, '', pushplus_token)
+        print('send_pushplus_message', ret)
