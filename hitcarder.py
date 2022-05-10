@@ -239,5 +239,9 @@ if __name__ == "__main__":
 
     pushplus_token = os.environ.get('PUSHPLUS_TOKEN')
     if pushplus_token:
+        print('get pushplus token success')
         ret = message.pushplus(msg, '打卡', pushplus_token)
         print('send_pushplus_message', ret)
+    else:
+        print('get pushplus token fail')
+        
