@@ -31,6 +31,7 @@ jobs:
           USERNAME: ${{ secrets[matrix.username] }}
           PASSWORD: ${{ secrets[matrix.password] }}
           DINGTALK_TOKEN: ${{ secrets[matrix.dingtalk_token] }}
+          PUSHPLUS_TOKEN: ${{ secrets[matrix.pushplus_token] }}
         run: |
           python3 ./hitcarder.py
         shell: bash
