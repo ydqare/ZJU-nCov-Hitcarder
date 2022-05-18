@@ -128,7 +128,7 @@ class HitCarder(object):
         new_info = def_info.copy()
         new_info.update(magic_code_group)
         ocr = ddddocr.DdddOcr()
-        resp = self.sess.get(self.captcha_url)
+        #resp = self.sess.get(self.captcha_url)
         # form change
         new_info['szgjcs'] = ""
         new_info['zgfx14rfhsj'] = ""
@@ -141,7 +141,7 @@ class HitCarder(object):
         new_info['sfymqjczrj'] = old_info['sfymqjczrj'] # 入境
         new_info['sfqrxxss'] = 1 # 属实
         new_info['campus'] = '玉泉校区' #校区
-        new_info['verifyCode'] =  ocr.classification(resp.content)#验证码
+        #new_info['verifyCode'] =  ocr.classification(resp.content)#验证码
 
         self.info = new_info
         # print(json.dumps(self.info))
