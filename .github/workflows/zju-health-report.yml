@@ -27,7 +27,7 @@ jobs:
       - name: 'Install requirements'
         run: pip3 install -r ./requirements.txt
       - name: Working
-        uses: dejavumono/zju-ncov-hitcarder@master
+        uses: dejavumono/zju-ncov-hitcarder@main
         with:
           username: ${{ secrets[matrix.username] }}
           password: ${{ secrets[matrix.password] }}
