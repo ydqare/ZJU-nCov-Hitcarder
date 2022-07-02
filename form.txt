@@ -14,7 +14,6 @@
                                     <span>学工号 Student/Staff ID No.<i style="display: none;" class="icon iconfont icon-shuoming"></i></span>
                                     <input v-model="number" readonly type="text" placeholder=""></div>
                             </li>
-
                             <li>
                                 <div name="sfzx" class="radio"><span>今日是否在校？ Are you on campus today?<i class="icon iconfont icon-shuoming"></i><em></em></span>
                                     <div>
@@ -56,7 +55,6 @@
                                     </div>
                                 </div>
                             </li>
-
                             <li v-if="info.sfzx==='0' && sfzgn== 1">
                                 <div name="ismoved" class="radio"><span>今日是否有离开校区所在城市的外出安排。Are you planning to leave the city of your campus today?<i class="icon iconfont icon-shuoming"></i><em></em></span>
                                     <div>
@@ -67,8 +65,15 @@
                                     </div>
                                 </div>
                             </li>
-
-
+                                                        <li>
+                                <div name="internship" class="radio"><span>今日是否进行实习。Are you doing an internship today?<i class="icon iconfont icon-shuoming"></i><em></em></span>
+                                    <div>
+                                        <div @click="info.internship=2"><span :class="{active: info.internship==2}"><i></i></span> <span>校内实习 On-campus internship</span></div>
+                                        <div @click="info.internship=3"><span :class="{active: info.internship==3}"><i></i></span> <span>校外实习Off-campus internship</span></div>
+                                        <div @click="info.internship=1"><span :class="{active: info.internship==1}"><i></i></span> <span>否 No</span></div>
+                                    </div>
+                                </div>
+                            </li>
                             <li v-show="info.sfzx==='0' && !ipCtrl1 && sfzgn == 0" name="dwszgj">
                                 <div class="text" @click="mapInit()">
                                     <span>所在地点（请打开手机位置功能，并在手机权限设置中选择允许访问位置信息）Your location (Please turn on the location access function on your mobile phone and allow App to access your location)<i class="icon iconfont icon-shuoming"></i></span>
@@ -82,7 +87,6 @@
                                             <option v-for='p in country' :value="p.name">{{p.name}} {{p.ename}}</option>
                                         </select>
                                         <input v-model="info.gwszgzcs" type="text" placeholder="所在城市 City" class="hcqbtn" name="gwszgzcs">
-
                                     </div>
                                 </div>
                             </li>
@@ -91,7 +95,6 @@
                                     <span>所在地点（请打开手机位置功能，并在手机权限设置中选择允许访问位置信息）Your location (Please turn on the location access function on your mobile phone and allow App to access your location)<i class="icon iconfont icon-shuoming"></i></span>
                                     <input v-model="info.area" readonly type="text" placeholder="点击获取地理位置 Click to get geographic location"></div>
                             </li>
-
                             <li v-show="info.sfzx==='0' && sfzgn == 0">
                                 <div class="multiText"><span>近14日到访过的国家/地区 Countries you've visited over the past 14 days<i class="icon iconfont icon-shuoming"></i></span>
                                     <div><textarea v-model="info.zjdfgj" name="zjdfgj" rows="" cols="" placeholder="多个用逗号隔开（如德国，荷兰）separate by commas if more than one country (eg: Germany, Netherlands)"></textarea></div>
@@ -116,7 +119,6 @@
                                     </div>
                                 </div>
                             </li>
-
                             <li v-show="info.sfzx==='0' && sfzgn == 0 && info.sfyrjjh == 1">
                                 <div class="multiText"><span>途经国家/地区（直航填无）Transit Country/region? (Enter “no” if direct flights).<i class="icon iconfont icon-shuoming"></i></span>
                                     <div><textarea v-model="info.tjgj" name="tjgj" rows="" cols="" placeholder="多个用逗号隔开（如德国，荷兰）separate by commas if more than one country (eg: Germany, Netherlands)"></textarea></div>
@@ -140,7 +142,6 @@
                                             <option value="">请选择</option>
                                             <option v-for='p in Allprovice' :value="p.name">{{p.name}}</option>
                                         </select>
-
                                         <select class="hcqbtn hcqbtn-warning" v-model='info.jnmddshi' @change="handleChangeAreat(info.jnmddshi)">
                                             <option value="">请选择</option>
                                             <option v-for='c in Allcityt' :value="c.name">{{c.name}}</option>
@@ -149,7 +150,6 @@
                                             <option value="">请选择</option>
                                             <option v-for='a in Allareat' :value="a">{{a}}</option>
                                         </select>
-
                                     </div>
                                     <input name="jnmddxiangxi" v-model="info.jnmddxiangxi" type="text" placeholder="详细地址 Detailed address" class="hcqbtn-wrap-input">
                                 </div>
@@ -197,11 +197,9 @@
                                     </div>
                                 </div>
                             </li>
-
                             <li>
                                 <div name="tw" class="radio"><span>今日是否有发热症状（高于37.2 ℃）？ Do you have a fever(above 37.2℃) today?<i class="icon iconfont icon-shuoming"></i><em></em></span>
                                     <div>
-
                                         <div @click="info.tw='1'"><span :class="{active: info.tw==='1'}"><i></i></span> <span>是 Yes</span></div>
                                         <div @click="info.tw='0'"><span :class="{active: info.tw==='0'}"><i></i></span> <span>否 No</span></div>
                                     </div>
@@ -255,7 +253,6 @@
                                     </div>
                                 </div>
                             </li>
-
 <!--                            <li>-->
 <!--                                <div class="text">-->
 <!--                                    <input style="width: unset;display: inline-block;" name="verifyCode" v-model="info.verifyCode" type="text" placeholder="请输入验证码">-->
