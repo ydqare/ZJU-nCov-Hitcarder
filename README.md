@@ -33,7 +33,9 @@
    - 电脑版钉钉 > 群设置 > 智能群助手 > 添加机器人 > 自定义，名字随便填，安全设置选择`自定义关键字`，填`打卡`，然后下一步复制Webhook。
    - Settings > Secrets > Actions > New repository secret， 添加`DINGTALK_TOKEN`，内容为刚才复制的Webhook中 `access_token=` 后面的内容。
 
-5. 
+5. 配置微信消息通知（可选）
+   - 前往 http://www.pushplus.plus/ 微信扫码登录，点击顶部"一对一推送"，复制token
+   - Settings > Secrets > New repository secrets， 添加`PUSHPLUS_TOKEN`，内容为刚才复制的token。
 
 6. 测试
    
